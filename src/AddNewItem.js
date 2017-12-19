@@ -15,9 +15,9 @@ class AddNewItem extends Component {
 		return (
 			<View className="add__form">
 				<Text>Item</Text>
-					<TextInput type="text" className="add__input" value={this.state.name} onChange={this.handleNameEvent} />
+					<TextInput type="text" className="add__input" value={this.state.name} onChangeText={this.handleNameEvent} />
 				<Text>Price $</Text>
-					<TextInput type="number" className="add__input" value={this.state.price} onChange={this.handlePriceEvent} />
+					<TextInput type="number" className="add__input" value={this.state.price} onChangeText={this.handlePriceEvent} />
 				<View>
 					<Button onPress={this.handleSubmit} title="Add" type="submit" className="add__button" />
 				</View>
