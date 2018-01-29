@@ -1,25 +1,27 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Text } from 'react-native';
 
-class ShoppingCartItem extends Component {
+const ShoppingCartItem = (props) => {
+  console.log(props);
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text} onPress={() => props.removeItem(props.id)}>X</Text>
+        <Text style={styles.text}>{props.item.name}</Text>
+        <Text style={styles.text}>{props.item.price}</Text>
+      </View>
+    );
+  };
 
-	render() {
-		return (
-			<View className="cart__item">
-				<View>
-					<View className="cart__remove" onClick={this.props.callback}>
-						<Text>X</Text>
-					</View>
-					<View className="cart__itemname">
-						<Text>{this.props.item.name}</Text>
-					</View>
-				</View>
-				<View className="cart__price">
-					<Text>{this.props.item.price}</Text>
-				</View>
-		  </View>
-		);
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: '#fff',
+    padding: 10
+  },
+  text: {
+    fontSize: 22
   }
-}
+});
 
 export default ShoppingCartItem;

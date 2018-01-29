@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Alert, StyleSheet, Text, View } from 'react-native';
 import ShoppingCart from './ShoppingCart';
 import AddNewItem from './AddNewItem';
 
-export default class Main extends React.Component {
+class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,9 +12,10 @@ export default class Main extends React.Component {
   }
   
   render() {
+    //const {items} = this.state;
     return (
-      <View className="app">
-        <ShoppingCart items={this.state.items} onDelete={(index) => this.removeItem(index)} />
+      <View style={styles.container}>
+        <ShoppingCart style={styles.cart} items={this.state.items} removeItem={this.removeItem} />
         <AddNewItem onSubmit={this.addToCart} />
       </View>
     );
@@ -29,11 +30,21 @@ export default class Main extends React.Component {
   };
 
   removeItem = (index) => {
-    // this.setState(prevState => {
-    //   const newItems = prevState.items.slice(0);
-    //   newItems.splice(index, 1);
-    //   return { items: newItems };
-    // });
+    this.setState(prevState => {
+      const newItems = prevState.items.slice(0);
+      newItems.splice(index, 1);
+      return { items: newItems };
+    });
   };
 
 } //end of component
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    justifyContent: 'center'
+  }
+});
+
+export default Main;
