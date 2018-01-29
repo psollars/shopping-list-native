@@ -7,7 +7,7 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: []
+      items: [{name: "thing", price: "1"}, {name: "thing", price: "2"}]
     };
   }
   

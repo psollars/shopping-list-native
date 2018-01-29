@@ -19,8 +19,7 @@ class ShoppingCart extends Component {
       <View style={styles.container}>
         <View>{ItemsInCart}</View>
         <View style={styles.total}>
-          <Text>Total:</Text>
-          <Text>{shoppingCartTotal}</Text>
+         <Text>Total ${shoppingCartTotal}</Text>
         </View>
       </View>
     );
@@ -30,12 +29,13 @@ class ShoppingCart extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#ff55ff',
     padding: 10
   },
   total: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'flex-end',
+    borderTopWidth: .5,
+    borderTopColor: '#000'
   }
 });
 
